@@ -1,49 +1,33 @@
-const form = document.querySelector('form');
-const taskInput = document.getElementById('task');
-const heading = document.querySelector('h5');
-const select = document.querySelector('select');
+//  EVENT BUBBLING
 
-// Clear Input
-taskInput.value = '';
+// document.querySelector('.card-title').addEventListener('click', function(e){
+//     console.log('card title');
+// });
 
-// form.addEventListener('submit', runEvent);
+// document.querySelector('.card-content').addEventListener('click', function (e) {
+//   console.log('card content');
+// });
 
-//  keydown
-// taskInput.addEventListener('keydown', runEvent);
+// document.querySelector('.card').addEventListener('click', function (e) {
+//   console.log('card');
+// });
 
-//  keyup
-// taskInput.addEventListener('keyup', runEvent);
+// document.querySelector('.col').addEventListener('click', function (e) {
+//   console.log('col');
+// });
 
-//  keypress
-// taskInput.addEventListener('keypress', runEvent);
+// const delItem = document.querySelector('.delete-item');
 
-//  focus
-// taskInput.addEventListener('focus', runEvent);
+// delItem.addEventListener('click', deleteItem);
 
-//  blur
-// taskInput.addEventListener('blur', runEvent);
+document.body.addEventListener('click', deleteItem);
 
-//  cut
-// taskInput.addEventListener('cut', runEvent);
-
-//  paste
-// taskInput.addEventListener('paste', runEvent);
-
-//  input
-// taskInput.addEventListener('input', runEvent);
-
-//  change
-select.addEventListener('change', runEvent);
-
-function runEvent(e) {
-    // e.preventDefault(); 
-    console.log(`EVENT TYPE: ${e.type}`);
-
-    console.log(e.target.value);
-
-    // heading.innerText = e.target.value;
-
-    //  Get Input Value
-    // console.log(taskInput.value);
- 
+function deleteItem(e) {
+    // if(e.target.parentElement.className === 'delete-item secondary-content') {
+    //     console.log('delete item');
+    // }
+    if (e.target.parentElement.classList.contains('delete-item')) {
+      console.log('delete item');
+      e.target.parentElement.parentElement.remove();
+    }
 }
